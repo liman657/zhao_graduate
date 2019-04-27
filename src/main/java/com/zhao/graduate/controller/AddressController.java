@@ -31,10 +31,15 @@ public class AddressController {
     @RequestMapping(value = "/postAddr",method = RequestMethod.POST)
     public MsgResult updateUserAddress(@RequestBody UserAddress userAddress){
         System.out.println(userAddress);
+        MsgResult msgResult = new MsgResult(0,"新增收货地址成功");
         int result= addressService.addUserReceiveAddress(userAddress);
-        System.out.println(result);
-        MsgResult msgResult = new MsgResult(200,"新增收货地址成功");
-        return msgResult;
+        if(result>0){
+            return msgResult;
+        }else{
+            msgResult.setRetMsg("服务繁忙");
+            msgResult.setRetCode(9999);
+            return msgResult;
+        }
     }
 
 }
