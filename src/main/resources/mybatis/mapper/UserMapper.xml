@@ -20,4 +20,18 @@
     <select id = "selectUserInfoByOpenId" resultMap="BaseResultMap">
         select * from USER where openId = #{openId}
     </select>
+    
+    <update id="updateUserInfo">
+        update user
+        set
+         gold = #{gold},
+         money = #{money},
+         openId = #{openId},
+         username = #{username},
+         tel = #{telephone},
+         email = #{email},
+         password = #{password},
+         isVip = #{isVip}
+         where id = #{id}
+    </update>
 </mapper>

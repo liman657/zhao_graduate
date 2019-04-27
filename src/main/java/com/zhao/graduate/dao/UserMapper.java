@@ -16,4 +16,6 @@ public interface UserMapper {
 
     public UserInfo selectUserInfoByOpenId(String openId);
 
+    int updateUserInfo(UserInfo userInfo);
+
 }

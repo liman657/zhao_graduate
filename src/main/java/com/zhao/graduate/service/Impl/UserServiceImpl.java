@@ -31,4 +31,9 @@ public class UserServiceImpl implements IUserService {
     public UserInfo getUserByOpenId(String openId) {
         return userMapper.selectUserInfoByOpenId(openId);
     }
+
+    @Override
+    public int updateUserInfo(UserInfo userInfo) {
+        return userMapper.updateUserInfo(userInfo);
+    }
 }

@@ -15,4 +15,6 @@ public interface IUserService {
 
     public UserInfo getUserByOpenId(String openId);
 
+    int updateUserInfo(UserInfo userInfo);
+
 }
