@@ -1,5 +1,7 @@
 package com.zhao.graduate.POJO;
 
+import java.util.List;
+
 /**
  * autor:liman
  * comment:
@@ -15,6 +17,8 @@ public class UserInfo {
     private String email;
     private String password;
     private int isVip;
+
+    private List<Coupon> userCoupons;
 
     public Integer getId() {
         return id;
@@ -86,5 +90,29 @@ public class UserInfo {
 
     public void setIsVip(int isVip) {
         this.isVip = isVip;
+    }
+
+    public List<Coupon> getUserCoupons() {
+        return userCoupons;
+    }
+
+    public void setUserCoupons(List<Coupon> userCoupons) {
+        this.userCoupons = userCoupons;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", gold=" + gold +
+                ", money=" + money +
+                ", openId='" + openId + '\'' +
+                ", username='" + username + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isVip=" + isVip +
+                ", userCoupons=" + userCoupons +
+                '}';
     }
 }
