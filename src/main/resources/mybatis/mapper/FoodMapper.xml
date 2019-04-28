@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhao.graduate.dao.FoodMapper">
+    <resultMap id="BaseResultMap" type="com.zhao.graduate.POJO.Food">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result property="shopId" jdbcType="INTEGER" column="shop_id"/>
+        <result property="categoryId" jdbcType="INTEGER" column="category_id"/>
+        <result property="name" jdbcType="VARCHAR" column="name"/>
+        <result property="price" jdbcType="INTEGER" column="price"/>
+        <result property="originPrice" jdbcType="INTEGER" column="originPrice"/>
+        <result property="image" jdbcType="VARCHAR" column="image"/>
+        <result property="salesVolumes" jdbcType="INTEGER" column="sales_Volumes"/>
+        <result property="discountCount" jdbcType="INTEGER" column="discount_count"/>
+    </resultMap>
+
+    <select id="selectFoodByIdAndCategoryId" resultMap="BaseResultMap">
+        select * from food
+        where 1=1
+        <if test="id!=null">
+            and id = #{id}
+        </if>
+        <if test="categoryId!=null">
+            and category_id = #{categoryId}
+        </if>
+        <if test="shopId!=null">
+            and shop_id = #{shopId}
+        </if>
+    </select>
+</mapper>

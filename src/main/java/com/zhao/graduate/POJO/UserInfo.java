@@ -17,9 +17,6 @@ public class UserInfo {
     private String email;
     private String password;
     private int isVip;
-
-    private List<Coupon> userCoupons;
-
     public Integer getId() {
         return id;
     }
@@ -92,14 +89,6 @@ public class UserInfo {
         this.isVip = isVip;
     }
 
-    public List<Coupon> getUserCoupons() {
-        return userCoupons;
-    }
-
-    public void setUserCoupons(List<Coupon> userCoupons) {
-        this.userCoupons = userCoupons;
-    }
-
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -112,7 +101,6 @@ public class UserInfo {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isVip=" + isVip +
-                ", userCoupons=" + userCoupons +
                 '}';
     }
 }

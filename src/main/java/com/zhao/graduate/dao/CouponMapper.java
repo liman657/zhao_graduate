@@ -1,5 +1,6 @@
 package com.zhao.graduate.dao;
 
+import com.zhao.graduate.POJO.Coupon;
 import com.zhao.graduate.POJO.UserInfo;
 
 import java.util.List;
@@ -11,5 +12,8 @@ import java.util.List;
 //@Repository
 public interface CouponMapper {
 
+    public List<Coupon> selectAllCoupon();
+
+    public List<Coupon> selectCouponWithUser();
 
 }
