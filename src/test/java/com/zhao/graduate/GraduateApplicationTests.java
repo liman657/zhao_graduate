@@ -1,9 +1,11 @@
 package com.zhao.graduate;
 
 import com.zhao.graduate.POJO.Coupon;
+import com.zhao.graduate.POJO.Evaluate;
 import com.zhao.graduate.POJO.Food;
 import com.zhao.graduate.POJO.Shop;
 import com.zhao.graduate.dao.CouponMapper;
+import com.zhao.graduate.dao.EvaluateMapper;
 import com.zhao.graduate.dao.FoodMapper;
 import com.zhao.graduate.dao.ShopMapper;
 import com.zhao.graduate.service.ICouponService;
@@ -30,6 +32,9 @@ public class GraduateApplicationTests {
 
     @Autowired
     private FoodMapper foodMapper;
+
+    @Autowired
+    private EvaluateMapper evaluateMapper;
 
     @Test
     public void contextLoads() {
@@ -60,5 +65,12 @@ public class GraduateApplicationTests {
         food.setCategoryId(5);
         List<Food> foods = foodMapper.selectFoodByIdAndCategoryId(food);
         System.out.println(foods);
+    }
+
+    @Test
+    public void testEvaluateMapper(){
+        List<Evaluate> evaluates = evaluateMapper.selectEvaluateByShopId(1);
+        System.out.println(evaluates);
+
     }
 }

@@ -1,7 +1,7 @@
 package com.zhao.graduate.controller;
 
-import com.zhao.graduate.POJO.Food;
-import com.zhao.graduate.service.IFoodService;
+import com.zhao.graduate.POJO.Evaluate;
+import com.zhao.graduate.service.IEvaluateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,15 +14,15 @@ import java.util.List;
  * comment:
  */
 @RestController
-@RequestMapping("/food")
-public class FoodController {
+@RequestMapping("/evaluate")
+public class EvaluateController {
 
     @Autowired
-    private IFoodService foodService;
+    private IEvaluateService evaluateService;
 
     @RequestMapping("/getList")
-    public List<Food> getFoodInfoByShopId(@RequestParam("shopId") Integer shopId){
-        return foodService.getFoodInfoByShopId(shopId);
+    public List<Evaluate> getEvaluateByShopId(@RequestParam("shopId") Integer shopId){
+        return evaluateService.getEvaluateInfoByShopId(shopId);
     }
 
 }
