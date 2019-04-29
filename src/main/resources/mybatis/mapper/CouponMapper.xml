@@ -7,6 +7,8 @@
         <result property="modelId" column="model_id"></result>
         <result property="startDate" column="start_date" jdbcType="TIMESTAMP"></result>
         <result property="endDate" column="end_date" jdbcType="TIMESTAMP"></result>
+        <association property="userInfo" resultMap="com.zhao.graduate.dao.UserMapper.BaseResultMap"/>
+        <association property="couponModel" resultMap="com.zhao.graduate.dao.CouponModelMapper.BaseResultMap"/>
     </resultMap>
 
     <resultMap id="withUserInfoMap" type="com.zhao.graduate.POJO.Coupon" extends="BaseResultMap">
@@ -18,9 +20,7 @@
     </select>
 
     <select id = "selectCouponWithUser" resultMap="withUserInfoMap">
-
         select * from coupon c inner join user u on c.user_id = u.id;
-
     </select>
 
 </mapper>

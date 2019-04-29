@@ -1,5 +1,7 @@
 package com.zhao.graduate.POJO;
 
+import java.util.List;
+
 /**
  * autor:liman
  * comment: 食物实体
@@ -15,6 +17,9 @@ public class Food {
     private String image;
     private Integer salesVolumes;
     private Integer discountCount;
+
+    private Category category;
+    private Shop shop;
 
     public Integer getId() {
         return id;
@@ -88,6 +93,22 @@ public class Food {
         this.discountCount = discountCount;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
     @Override
     public String toString() {
         return "Food{" +
@@ -100,6 +121,8 @@ public class Food {
                 ", image='" + image + '\'' +
                 ", salesVolumes=" + salesVolumes +
                 ", discountCount=" + discountCount +
+                ", category=" + category +
+                ", shop=" + shop +
                 '}';
     }
 }

@@ -65,6 +65,9 @@ public class GraduateApplicationTests {
         Food food = new Food();
         food.setCategoryId(5);
         List<Food> foods = foodMapper.selectFoodByIdAndCategoryId(food);
+        for(Food f:foods){
+            System.out.println(f.getCategory());
+        }
         System.out.println(foods);
     }
 

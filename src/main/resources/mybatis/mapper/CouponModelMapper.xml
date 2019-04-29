@@ -3,6 +3,11 @@
 <mapper namespace="com.zhao.graduate.dao.CouponModelMapper">
     <resultMap id="BaseResultMap" type="com.zhao.graduate.POJO.CouponModel">
         <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="gold" jdbcType="INTEGER" property="gold"/>
+        <result column="shopId" jdbcType="INTEGER" property="shop_id"/>
+        <result column="threshold" jdbcType="INTEGER" property="threshold"/>
+        <result column="rebate" jdbcType="INTEGER" property="rebate"/>
+
     </resultMap>
 
 </mapper>

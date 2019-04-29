@@ -11,6 +11,9 @@
         <result property="image" jdbcType="VARCHAR" column="image"/>
         <result property="salesVolumes" jdbcType="INTEGER" column="sales_Volumes"/>
         <result property="discountCount" jdbcType="INTEGER" column="discount_count"/>
+
+        <association property="category" resultMap="com.zhao.graduate.dao.CategoryMapper.BaseResultMap"></association>
+        <association property="shop" resultMap="com.zhao.graduate.dao.ShopMapper.BaseResultMap"></association>
     </resultMap>
 
     <select id="selectFoodByIdAndCategoryId" resultMap="BaseResultMap">
@@ -25,5 +28,13 @@
         <if test="shopId!=null">
             and shop_id = #{shopId}
         </if>
+    </select>
+
+    <select id="selectFoodByShopIdAndCategoryId">
+        select * from
+        food f
+        inner join shop s on f.shop_id = s.id
+        inner join category c on f.category_id = c.id
+        where f.id=#{id};
     </select>
 </mapper>

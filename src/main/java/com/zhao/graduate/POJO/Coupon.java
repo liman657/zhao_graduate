@@ -14,9 +14,8 @@ public class Coupon {
     private Integer modelId;
     private Date startDate;
     private Date endDate;
-
-    private List<UserInfo> userInfoList;
-
+    private UserInfo userInfo;
+    private CouponModel couponModel;
 
     public Integer getId() {
         return id;
@@ -44,14 +43,6 @@ public class Coupon {
         this.modelId = modelId;
     }
 
-    public List<UserInfo> getUserInfoList() {
-        return userInfoList;
-    }
-
-    public void setUserInfoList(List<UserInfo> userInfoList) {
-        this.userInfoList = userInfoList;
-    }
-
     public Date getStartDate() {
         return startDate;
     }
@@ -68,14 +59,32 @@ public class Coupon {
         this.endDate = endDate;
     }
 
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public CouponModel getCouponModel() {
+        return couponModel;
+    }
+
+    public void setCouponModel(CouponModel couponModel) {
+        this.couponModel = couponModel;
+    }
+
     @Override
     public String toString() {
         return "Coupon{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", modelId=" + modelId +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", userInfoList=" + userInfoList +
+                ", userInfo=" + userInfo +
+                ", couponModel=" + couponModel +
                 '}';
     }
 }
