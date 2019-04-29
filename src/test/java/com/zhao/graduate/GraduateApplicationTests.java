@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -71,6 +72,14 @@ public class GraduateApplicationTests {
     public void testEvaluateMapper(){
         List<Evaluate> evaluates = evaluateMapper.selectEvaluateByShopId(1);
         System.out.println(evaluates);
+    }
 
+    @Test
+    public void testAddEvaluate(){
+        Evaluate evaluate = new Evaluate();
+        evaluate.setDate(new Date());
+        evaluate.setShopId(1);
+        evaluate.setUserId(1);
+        evaluateMapper.insertEvaluate(evaluate);
     }
 }

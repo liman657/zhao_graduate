@@ -20,6 +20,10 @@
     <select id = "selectUserInfoByOpenId" resultMap="BaseResultMap">
         select * from USER where openId = #{openId}
     </select>
+
+    <select id = "selectUserInfoByTel" resultMap="BaseResultMap">
+        select * from USER where tel = #{tel}
+    </select>
     
     <update id="updateUserInfo">
         update user
@@ -34,4 +38,9 @@
          isVip = #{isVip}
          where id = #{id}
     </update>
+
+    <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.zhao.graduate.POJO.UserInfo">
+        insert into user (gold,money,openId,username,tel,email,password,isvip)
+        values (#{gold},#{money},#{openId},#{username},#{telephone},#{email},#{password},#{isVip})
+    </insert>
 </mapper>

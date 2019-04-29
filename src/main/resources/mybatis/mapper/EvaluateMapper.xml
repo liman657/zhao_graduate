@@ -12,9 +12,12 @@
     </resultMap>
 
     <select id="selectEvaluateByShopId" resultMap="BaseResultMap">
-
         select * from evaluate where shop_id = #{shopId}
-
     </select>
+
+    <insert id="insertEvaluate" useGeneratedKeys="true" keyProperty="id" parameterType="com.zhao.graduate.POJO.Evaluate">
+        insert into evaluate (description,image,date,anonymous,user_id,shop_id)
+        values (#{desc},#{image},#{date},#{anonymous},#{userId},#{shopId})
+    </insert>
 
 </mapper>

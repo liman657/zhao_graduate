@@ -14,4 +14,5 @@ public interface IEvaluateService {
     List<Evaluate> getEvaluateInfoByShopId(Integer shopId);
 
 
+    int addEvaluate(Evaluate evaluate);
 }

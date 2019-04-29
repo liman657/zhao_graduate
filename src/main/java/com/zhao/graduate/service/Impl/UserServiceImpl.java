@@ -36,4 +36,9 @@ public class UserServiceImpl implements IUserService {
     public int updateUserInfo(UserInfo userInfo) {
         return userMapper.updateUserInfo(userInfo);
     }
+
+    @Override
+    public int addUserInfo(UserInfo userInfo) {
+        return userMapper.insertUserInfo(userInfo);
+    }
 }

@@ -13,4 +13,6 @@ import java.util.List;
 public interface EvaluateMapper {
 
     public List<Evaluate> selectEvaluateByShopId(Integer shopId);
+
+    int insertEvaluate(Evaluate evaluate);
 }

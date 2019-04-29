@@ -22,4 +22,9 @@ public class EvaluateServiceImpl implements IEvaluateService {
     public List<Evaluate> getEvaluateInfoByShopId(Integer shopId) {
         return evaluateMapper.selectEvaluateByShopId(shopId);
     }
+
+    @Override
+    public int addEvaluate(Evaluate evaluate) {
+        return evaluateMapper.insertEvaluate(evaluate);
+    }
 }

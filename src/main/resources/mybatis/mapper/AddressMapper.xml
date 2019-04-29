@@ -12,7 +12,6 @@
         <result column="idDefault" jdbcType="INTEGER" property="idDefault"></result>
     </resultMap>
 
-
     <select id = "selectAddressByOpenId" resultMap="BaseResultMap">
         select * from address where openId = #{openId}
     </select>

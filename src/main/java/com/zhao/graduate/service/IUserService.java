@@ -17,4 +17,6 @@ public interface IUserService {
 
     int updateUserInfo(UserInfo userInfo);
 
+    int addUserInfo(UserInfo userInfo);
+
 }

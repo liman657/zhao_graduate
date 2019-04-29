@@ -18,4 +18,8 @@ public interface UserMapper {
 
     int updateUserInfo(UserInfo userInfo);
 
+    public UserInfo selectUserInfoByTel(String tel);
+
+    int insertUserInfo(UserInfo userInfo);
+
 }
