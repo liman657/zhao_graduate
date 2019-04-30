@@ -14,8 +14,8 @@
         <result property="minCost" column="min_cost" jdbcType="INTEGER"></result>
         <result property="conveyCost" column="convey_cost" jdbcType="INTEGER"></result>
         <result property="salesVolumes" column="sales_volumes" jdbcType="INTEGER"></result>
-        <result property="startDate" column="start_date" jdbcType="VARCHAR"></result>
-        <result property="endDate" column="end_date" jdbcType="VARCHAR"></result>
+        <result property="startTime" column="start_date" jdbcType="VARCHAR"></result>
+        <result property="endTime" column="end_date" jdbcType="VARCHAR"></result>
     </resultMap>
 
     <select id="selectShopById" resultMap="BaseResultMap">

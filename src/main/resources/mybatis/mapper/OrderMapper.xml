@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhao.graduate.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.zhao.graduate.POJO.Order">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="total" jdbcType="INTEGER" property="total"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="shop_id" jdbcType="INTEGER" property="shopId"/>
+        <result column="rider_id" jdbcType="INTEGER" property="riderId"/>
+        <result column="coupon_id" jdbcType="INTEGER" property="couponId"/>
+        <result column="address_id" jdbcType="INTEGER" property="addressId"/>
+
+    </resultMap>
+
+    <resultMap id="OrderWithRider" extends="BaseResultMap" type="com.zhao.graduate.POJO.Order">
+        <association property="rider" resultMap="com.zhao.graduate.dao.RiderMapper.BaseResultMap"/>
+    </resultMap>
+
+    <resultMap id="OrderWithShop" extends="BaseResultMap" type="com.zhao.graduate.POJO.Order">
+        <association property="shop" resultMap="com.zhao.graduate.dao.ShopMapper.BaseResultMap"/>
+    </resultMap>
+
+    <resultMap id="OrderWithAllDetail" extends="BaseResultMap" type="com.zhao.graduate.POJO.Order">
+        <association property="rider" resultMap="com.zhao.graduate.dao.RiderMapper.BaseResultMap"/>
+        <association property="shop" resultMap="com.zhao.graduate.dao.ShopMapper.BaseResultMap"/>
+        <association property="userInfo" resultMap="com.zhao.graduate.dao.UserMapper.BaseResultMap"/>
+        <association property="coupon" resultMap="com.zhao.graduate.dao.CouponMapper.BaseResultMap"/>
+        <association property="userAddress" resultMap="com.zhao.graduate.dao.AddressMapper.BaseResultMap"/>
+    </resultMap>
+
+    <select id="selectAllOrder" resultMap="BaseResultMap">
+        select * from t_order
+    </select>
+
+    <select id = "selectAllOrderWithDetail" resultMap="OrderWithRider">
+        select * from
+        t_order t inner join rider r on t.rider_id = r.id;
+    </select>
+
+    <select id="selectOrderWithShopDetail" resultMap="OrderWithShop">
+        select * from
+        t_order t inner join shop s on t.shop_id = s.id;
+    </select>
+
+    <select id="selectOrderWithAllDetail" resultMap="OrderWithAllDetail">
+        select * from
+        t_order t
+        inner join user u on t.user_id = u.id
+        inner join shop s on t.shop_id = s.id
+        inner join rider r on t.rider_id = r.id
+        inner join coupon c on t.coupon_id = c.id
+        inner join address a on t.address_id = a.id
+    </select>
+
+</mapper>

@@ -1,13 +1,7 @@
 package com.zhao.graduate;
 
-import com.zhao.graduate.POJO.Coupon;
-import com.zhao.graduate.POJO.Evaluate;
-import com.zhao.graduate.POJO.Food;
-import com.zhao.graduate.POJO.Shop;
-import com.zhao.graduate.dao.CouponMapper;
-import com.zhao.graduate.dao.EvaluateMapper;
-import com.zhao.graduate.dao.FoodMapper;
-import com.zhao.graduate.dao.ShopMapper;
+import com.zhao.graduate.POJO.*;
+import com.zhao.graduate.dao.*;
 import com.zhao.graduate.service.ICouponService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,52 +31,70 @@ public class GraduateApplicationTests {
     @Autowired
     private EvaluateMapper evaluateMapper;
 
+    @Autowired
+    private OrderMapper orderMapper;
+
     @Test
     public void contextLoads() {
     }
 
     @Test
-    public void testCouponList(){
+    public void testCouponList() {
         List<Coupon> allCoupon = couponService.getAllCoupon();
-        System.out.println( allCoupon);
+        System.out.println(allCoupon);
 
     }
 
     @Test
-    public void testSelectCouponWithUser(){
+    public void testSelectCouponWithUser() {
         List<Coupon> couponList = couponMapper.selectCouponWithUser();
         System.out.println(couponList);
     }
 
     @Test
-    public void testShopMapper(){
+    public void testShopMapper() {
         List<Shop> shops = shopMapper.selectShopById(1);
         System.out.println(shops);
     }
 
     @Test
-    public void testFoodMapper(){
+    public void testFoodMapper() {
         Food food = new Food();
         food.setCategoryId(5);
         List<Food> foods = foodMapper.selectFoodByIdAndCategoryId(food);
-        for(Food f:foods){
+        for (Food f : foods) {
             System.out.println(f.getCategory());
         }
         System.out.println(foods);
     }
 
     @Test
-    public void testEvaluateMapper(){
+    public void testEvaluateMapper() {
         List<Evaluate> evaluates = evaluateMapper.selectEvaluateByShopId(1);
         System.out.println(evaluates);
     }
 
     @Test
-    public void testAddEvaluate(){
+    public void testAddEvaluate() {
         Evaluate evaluate = new Evaluate();
         evaluate.setDate(new Date());
         evaluate.setShopId(1);
         evaluate.setUserId(1);
         evaluateMapper.insertEvaluate(evaluate);
+    }
+
+    @Test
+    public void testOrderDetailMapper() {
+//        List<Order> orders = orderMapper.selectAllOrder();
+//        System.out.println(orders);
+
+//        List<Order> orderList = orderMapper.selectAllOrderWithDetail();
+//        System.out.println(orderList);
+
+//        List<Order> orders = orderMapper.selectOrderWithShopDetail();
+//        System.out.println(orders);
+
+        List<Order> orderWithAllDetail = orderMapper.selectOrderWithAllDetail();
+        System.out.println(orderWithAllDetail);
     }
 }
