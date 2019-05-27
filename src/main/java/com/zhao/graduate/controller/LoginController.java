@@ -30,9 +30,9 @@ public class LoginController {
     private IUserService userService;
 
     @RequestMapping("/login")
-    public MsgResult login(@RequestParam String tel,@RequestParam String password){
+    public MsgResult login(@RequestParam("openId") String openId,@RequestParam("password") String password,@RequestParam("username") String username){
         MsgResult msgResult = new MsgResult(0,"登录成功");
-        UserInfo userInfo = userService.getUserByOpenId(tel);
+        UserInfo userInfo = userService.getUserByOpenId(openId);
         if(userInfo == null){
             msgResult.setRetCode(9999);
             msgResult.setRetMsg("请先注册!");
