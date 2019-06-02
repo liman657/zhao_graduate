@@ -7,8 +7,7 @@ import com.zhao.graduate.service.IUserService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,13 +22,14 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/getUserInfo")
-    public UserInfo getAllUserInfo(@Param("openId") String openId){
+    @RequestMapping(value = "/getUserInfo",method = RequestMethod.POST)
+    public UserInfo getAllUserInfo(@RequestBody String openId){
+        System.out.println(openId);
         return userService.getUserByOpenId(openId);
     }
 
     @RequestMapping("/money/in")
-    public MsgResult updateUserMoney(@Param("openId") String openId,@Param("money") double money){
+    public MsgResult updateUserMoney(@RequestParam("openId") String openId,@RequestParam("money") double money){
         MsgResult msgResult = new MsgResult(0000,"充值成功!");
         if(StringUtils.isNotBlank(openId)){
             UserInfo userInfo = userService.getUserByOpenId(openId);

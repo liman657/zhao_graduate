@@ -20,4 +20,8 @@ public interface OrderMapper {
 
     public List<Order> selectOrderWithAllDetail();
 
+    public Order selectOrderById(Integer orderId);
+
+    public int insertOrder(Order order);
+
 }

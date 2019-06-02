@@ -1,6 +1,7 @@
 package com.zhao.graduate.POJO;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * autor:liman
@@ -11,7 +12,7 @@ public class Order {
     private Integer id;
     private String number;
     private Integer total;
-    private Date date;
+    private Date orderDate;
     private String shopName;
     private Integer userId;
     private Integer shopId;
@@ -24,6 +25,8 @@ public class Order {
     private Rider rider;
     private Coupon coupon;
     private UserAddress userAddress;
+
+    private List<OrderFood> foods;
 
     public Integer getId() {
         return id;
@@ -49,12 +52,12 @@ public class Order {
         this.total = total;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
     public String getShopName() {
@@ -145,13 +148,21 @@ public class Order {
         this.userAddress = userAddress;
     }
 
+    public List<OrderFood> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(List<OrderFood> foods) {
+        this.foods = foods;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", total=" + total +
-                ", date=" + date +
+                ", orderDate=" + orderDate +
                 ", shopName='" + shopName + '\'' +
                 ", userId=" + userId +
                 ", shopId=" + shopId +
@@ -163,6 +174,7 @@ public class Order {
                 ", rider=" + rider +
                 ", coupon=" + coupon +
                 ", userAddress=" + userAddress +
+                ", foods=" + foods +
                 '}';
     }
 }

@@ -5,7 +5,7 @@
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="number" jdbcType="VARCHAR" property="number"/>
         <result column="total" jdbcType="INTEGER" property="total"/>
-        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="date" jdbcType="TIMESTAMP" property="orderDate"/>
         <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="shop_id" jdbcType="INTEGER" property="shopId"/>
@@ -54,5 +54,22 @@
         inner join coupon c on t.coupon_id = c.id
         inner join address a on t.address_id = a.id
     </select>
+
+    <select id="selectOrderById" resultMap="OrderWithAllDetail">
+        select * from
+        t_order t
+        inner join user u on t.user_id = u.id
+        inner join shop s on t.shop_id = s.id
+        inner join rider r on t.rider_id = r.id
+        inner join coupon c on t.coupon_id = c.id
+        inner join address a on t.address_id = a.id
+        where t.id = #{orderId}
+    </select>
+
+
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id" parameterType="com.zhao.graduate.POJO.Order">
+        insert into t_order (number,total,date,shop_name,user_id,shop_id,rider_id,coupon_id,address_id)
+        values(#{number},#{total},#{orderDate},#{shopName},#{userId},#{shopId},#{riderId},#{couponId},#{addressId});
+    </insert>
 
 </mapper>
