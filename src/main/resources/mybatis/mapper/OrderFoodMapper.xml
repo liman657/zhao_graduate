@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhao.graduate.dao.OrderFoodMapper">
+    <resultMap id="BaseResultMap" type="com.zhao.graduate.POJO.OrderFood">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="count" jdbcType="INTEGER" property="foodCount"/>
+        <result column="food_id" jdbcType="INTEGER" property="foodId"/>
+        <result column="order_id" jdbcType="INTEGER" property="orderId"/>
+
+    </resultMap>
+
+    <insert id="insertOrderFood" useGeneratedKeys="true" keyProperty="id" parameterType="com.zhao.graduate.POJO.Order">
+        insert into order_food (foodCount,foodId,orderId)
+        values(#{foodCount},#{foodId},#{orderId});
+    </insert>
+
+</mapper>

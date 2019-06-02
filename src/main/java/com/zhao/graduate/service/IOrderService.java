@@ -1,6 +1,7 @@
 package com.zhao.graduate.service;
 
 import com.zhao.graduate.POJO.Order;
+import com.zhao.graduate.POJO.OrderFood;
 
 import java.util.List;
 
@@ -16,5 +17,7 @@ public interface IOrderService {
     public Order selectByOrderId(Integer orderId);
 
     public int insertOrder(Order order);
+
+    public int insertOrderAndFood(OrderFood orderFood);
 
 }

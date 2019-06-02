@@ -1,6 +1,8 @@
 package com.zhao.graduate.service.Impl;
 
 import com.zhao.graduate.POJO.Order;
+import com.zhao.graduate.POJO.OrderFood;
+import com.zhao.graduate.dao.OrderFoodMapper;
 import com.zhao.graduate.dao.OrderMapper;
 import com.zhao.graduate.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class OrderServiceImpl implements IOrderService {
     @Autowired
     private OrderMapper orderMapper;
 
+    @Autowired
+    private OrderFoodMapper foodMapper;
+
     @Override
     public List<Order> selectOrderList() {
         return orderMapper.selectOrderWithAllDetail();
@@ -35,5 +40,10 @@ public class OrderServiceImpl implements IOrderService {
      */
     public int insertOrder(Order order){
         return orderMapper.insertOrder(order);
+    }
+
+    @Override
+    public int insertOrderAndFood(OrderFood orderFood) {
+        return foodMapper.insertOrderFood(orderFood);
     }
 }

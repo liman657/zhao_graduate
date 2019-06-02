@@ -1,6 +1,7 @@
 package com.zhao.graduate.controller;
 
 import com.zhao.graduate.POJO.Order;
+import com.zhao.graduate.POJO.OrderFood;
 import com.zhao.graduate.POJO.UserAddress;
 import com.zhao.graduate.entity.MsgResult;
 import com.zhao.graduate.service.IAddressService;
@@ -27,6 +28,8 @@ public class OrderController {
 
     @Autowired
     private IOrderService orderService;
+
+
 
     @RequestMapping("/getList")
     public Object getOrderList(){
@@ -62,8 +65,6 @@ public class OrderController {
 
     @RequestMapping("/order")
     public Object addOrder(@RequestBody Order order){
-//        System.out.println(order.toString());
-//        order.setDate(DateUtil.getDate(new Date()));
         order.setOrderDate(new Date());
         System.out.println(order);
         MsgResult msgResult = new MsgResult(0,"成功");
@@ -72,6 +73,11 @@ public class OrderController {
             if(i==0){
                 msgResult.setRetCode(9);
                 msgResult.setRetMsg("出现异常");
+            }
+
+            List<OrderFood> foods = order.getFoods();
+            for(OrderFood food:foods){
+                orderService.insertOrderAndFood(food);
             }
         }catch (Exception e){
             msgResult.setRetCode(9);
