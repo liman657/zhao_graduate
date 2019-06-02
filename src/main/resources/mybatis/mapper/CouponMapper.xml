@@ -16,7 +16,8 @@
     </resultMap>
 
     <select id="selectAllCoupon" resultMap="BaseResultMap">
-        select * from coupon c inner join coupon_model cm on c.model_id=cm.id;
+        select * from
+        coupon c inner join coupon_model cm on c.model_id=cm.id;
     </select>
 
     <select id = "selectCouponWithUser" resultMap="withUserInfoMap">

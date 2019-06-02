@@ -4,10 +4,13 @@
     <resultMap id="BaseResultMap" type="com.zhao.graduate.POJO.CouponModel">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="gold" jdbcType="INTEGER" property="gold"/>
-        <result column="shopId" jdbcType="INTEGER" property="shop_id"/>
+        <result column="shop_id" jdbcType="INTEGER" property="shopId"/>
         <result column="threshold" jdbcType="INTEGER" property="threshold"/>
         <result column="rebate" jdbcType="INTEGER" property="rebate"/>
-
     </resultMap>
+
+    <select id="selectAllCouponModel" resultMap="BaseResultMap">
+        select * from coupon_model;
+    </select>
 
 </mapper>

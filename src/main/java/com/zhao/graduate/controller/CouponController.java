@@ -24,8 +24,12 @@ public class CouponController {
     public MsgResult getAllCoupon(){
         MsgResult msgResult = new MsgResult(0,"查询成功!");
         List<Coupon> allCoupon = couponService.getAllCoupon();
+        for(Coupon coupon:allCoupon){
+            System.out.println(coupon.getCouponModel());
+        }
         if(allCoupon.size()>1){
             msgResult.setData(allCoupon);
+
             return msgResult;
         }else{
             msgResult.setRetCode(9999);
