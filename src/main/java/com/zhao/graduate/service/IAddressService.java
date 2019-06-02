@@ -18,4 +18,6 @@ public interface IAddressService {
      * @return
      */
     int addUserReceiveAddress(UserAddress userAddress);
+
+    int updateUserAddress(UserAddress userAddress);
 }

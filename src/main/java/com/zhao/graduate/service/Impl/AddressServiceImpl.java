@@ -32,4 +32,9 @@ public class AddressServiceImpl implements IAddressService {
     public int addUserReceiveAddress(UserAddress userAddress) {
         return addressMapper.saveUserAddress(userAddress);
     }
+
+    @Override
+    public int updateUserAddress(UserAddress userAddress){
+        return addressMapper.updateUserAddress(userAddress);
+    }
 }

@@ -20,4 +20,17 @@
         insert into address(openId,address,address_detail,username,sex,tel,idDefault)
         values (#{openId},#{address},#{addressDetail},#{userName},#{sex},#{telephone},#{idDefault})
     </insert>
+
+    <update id="updateUserAddress" parameterType="com.zhao.graduate.POJO.UserAddress">
+        update address
+        set
+        openId = #{openId},
+        address = #{address},
+        address_detail=#{addressDetail},
+        username=#{userName},
+        sex = #{sex},
+        tel = #{telephone},
+        idDefault = #{idDefault}
+        where id=#{id}
+    </update>
 </mapper>

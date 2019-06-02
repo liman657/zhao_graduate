@@ -29,10 +29,22 @@ public class AddressController {
     }
 
     @RequestMapping(value = "/postAddr",method = RequestMethod.POST)
-    public MsgResult updateUserAddress(@RequestBody UserAddress userAddress){
-        System.out.println(userAddress);
+    public MsgResult addUserAddress(@RequestBody UserAddress userAddress){
         MsgResult msgResult = new MsgResult(0,"新增收货地址成功");
         int result= addressService.addUserReceiveAddress(userAddress);
+        if(result>0){
+            return msgResult;
+        }else{
+            msgResult.setRetMsg("服务繁忙");
+            msgResult.setRetCode(9999);
+            return msgResult;
+        }
+    }
+
+    @RequestMapping("/updateAddress")
+    public MsgResult updateUserAddress(@RequestBody UserAddress userAddress){
+        MsgResult msgResult = new MsgResult(0,"新增收货地址成功");
+        int result= addressService.updateUserAddress(userAddress);
         if(result>0){
             return msgResult;
         }else{

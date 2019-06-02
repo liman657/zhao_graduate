@@ -19,4 +19,11 @@ public interface AddressMapper {
      * @return
      */
     int saveUserAddress(UserAddress userAddress);
+
+    /**
+     * 修改用户地址
+     * @param userAddress
+     * @return
+     */
+    int updateUserAddress(UserAddress userAddress);
 }
